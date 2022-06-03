@@ -1,0 +1,28 @@
+client.on('ready', async () => {
+    var data = srv.getCurrentPlayers(); // Player Data
+    var data2 = srv.getPlayers(); // Player Total
+    data.then(pl => {
+        data2.then(tot => {
+            const player = pl; // This is the array now
+
+        var plName = player.map(function (names) {
+            return names.name;
+        });
+
+        let playerData = client.channels.cache.get('739745383407812669');
+        const data = new discord.MessageEmbed()
+            .setColor('FFD700')
+            .setTitle('Gooks Roleplay Player Total')
+            .setAuthor('ANDROMEDA')
+            .setThumbnail('https://imgur.com/a/CvuCnMh')
+            .addFields(
+                { name: 'Total Player:', value: tot},
+                { name: '\u200B', value: '\u200B'},
+                { name: 'Player Name:', value: plName}
+            )
+            .setTimestamp()
+            .setFooter('This data will refreshed every 1 minute', 'https://imgur.com/a/CvuCnMh');
+        playerData.send(data);
+        });
+    });
+});
