@@ -18,7 +18,7 @@ const client = new discord.Client();
 client.on('ready', async () => {
     console.clear();
     console.log(`${client.user.tag} is ${colors.green(`ONLINE\n`)}`);
-    client.user.setActivity("This Server", {type: "WATCHING"});
+    client.user.setActivity("This Server", {type: "LISTENING"});
     /*try {
         setInterval(function() {
             const tot = srv.getPlayers();
